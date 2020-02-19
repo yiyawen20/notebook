@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xxxx</title>
+<link rel="stylesheet" type="text/css" href="http://cdn.mobimtech.com/www/ivp/v4/style/new_picture.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://cdn.mobimtech.com/www/ivp/v4/style/common.css" media="all" />
+<link skin="themeskin" rel="stylesheet" type="text/css" href="http://cdn.mobimtech.com/www/ivp/v4/style/theme_1.css?v=5273084">
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://cdn.mobimtech.com/www/ivp/v4/js/plugin/jquery/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="js/loveteam.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style/loveteam.css" media="all" />
+<script>
+var IMI = IMI || {};
+IMI.masterURL = '//localhost:8081/';
+var _ivp = _ivp || {};
+_ivp.auth = Math.random() > 0.4 ? 1 : 0;
+
+/**
+ * 格式化输出 
+ * @param {} template 模板，占位符为{}，具体内容，依次排在后面，或者数组
+ * @return {}
+ */
+ function fm(template) {// 接收的参数为两种类型，(template,1,2,...) 或者(template,[1,3,...])
+	var arr = [];
+	if (arguments.length == 2 && typeof arguments[1] == 'object')
+		arr = arr.concat(arguments[1]);
+	else {
+		for (var i = 1; i < arguments.length; i++) {
+			arr.push(arguments[i]);
+		}
+	}
+	for (var i = 0; i<arr.length;i++) {
+		template = template.replace(/{}/, arr[i]);
+	}
+    arr.splice(0,arr.length);
+    arr = null;
+	return template;
+}
+;$(function(){
+	$("#lt_panel_scroll").tinyscrollbar({"wheel":54,"size":200});
+	$("#lt_panel_scroll").tinyscrollbar_update();
+
+	loveteam.init();
+});
+</script>
+</head>
+<body style="width: 270px; background:#333;">
+<br><br><br>
+<!-- http://cdn.mobimtech.com/www/ivp/v4/style/img/pixel.gif -->
+
+<div class="lt_container" style="display: none;">
+	<div class="lt_p1 clear">
+		<span class="lt_btn1 right noSelect" id="lt_xuefei_btn" data-status="1" style="display: none;">续费</span>
+		<span class="lt_btn1 right noSelect" id="lt_open_btn" style="display: none;">立即开通</span>
+		<span class="lt_fanhui_btn theme_btn3 right noSelect" id="lt_fanhui_btn" style="display: none;">返回</span>
+		<div><img src="style/img/lt_icon.png" class="lt_icon"> 团称<span id="lt_name">[<i class="lt_c1">无</i>]</span><span class="noSelect" id="lt_name_setting" style="display: none;">[<i class="lt_c3">设置</i>]</span></div>
+	</div>
+	<div class="lt_p4" id="lt_mine_info" style="display: none;">
+		<p class="lt_mine_value">我的真爱值 <span class="lt_c2">0</span> <span class="lt_lv">lv0</span></p>
+		<div class="lt_ch1 clear">
+			<span class="lt_btn2 left">团排名0 <i class="lt_arrow1"></i></span>
+			<span class="lt_btn2 right">团成员0 <i class="lt_arrow1"></i></span>
+		</div>
+	</div>
+	<div class="lt_p2" id="lt_task_wrap" style="display: none;">
+		<p>做任务，提升真爱值</p>
+		<ul class="lt_task_list">
+			<li><span class="lt_t_n">1</span> 每日首次观看真爱主播<span class="lt_t_s lt_complete">+2 已完成</span></li>
+			<li><span class="lt_t_n">2</span> 每日在真爱主播间发言一次<span class="lt_t_s">+2 未完成</span></li>
+			<li><span class="lt_t_n">3</span> 每日分享真爱主播间<span class="lt_t_s">+5 未完成</span></li>
+			<li><span class="lt_t_n">3</span> 每日首次送礼给真爱主播间<span class="lt_t_s">+10 未完成</span></li>
+			<li><span class="lt_t_n">3</span> 每日在房间进行一次充值<span class="lt_t_s">+50 未完成</span></li>
+		</ul>
+	</div>
+	<div class="lt_p2" id="lt_privilege_wrap">
+		<div class="lt_privilege_title">真爱特权 <img src="style/img/que.png" class="lt_que"></div>
+		<div class="lt_privilege_list">
+			<ul class="clear">
+				<li class="lt_q1"><span>专属<br>图标</span></li>
+				<li class="lt_q2"><span>专属<br>道具</span></li>
+				<li class="lt_q3"><span>为Ta<br>打榜</span></li>
+				<li class="lt_q4"><span>排名<br>提前</span></li>
+			</ul>
+		</div>
+	</div>
+	<div class="lt_p3" id="lt_foot_open">
+		<div class="lt_ch_p">开通时长 <span class="lt_open_item"><i class="on">1个月</i> <i>3个月</i> <i>6个月</i> <i>12个月</i></span></div>
+		<div class="lt_ch_p">共需金豆 <span class="lt_c2" id="lt_open_price">8000</span> 开通即返<span class="lt_c2">30%</span>的金豆</div>
+		<div class="lt_ch_p" id="lt_great_date" style="display: none;">有效期至 <span class="lt_c2">2020-10-23</span></div>
+	</div>
+</div>
+
+
+<br><br><br>
+<!-- $("#um_pk_lau").tinyscrollbar({"wheel":12,"size":200});$("#um_pk_lau").tinyscrollbar_update(); -->
+<div class="lt_panel" id="loveteam_panel" style="display:none;">
+	<div class="lt_tips_m">
+		<div class="lt_panel_title">用户名真爱团成员<span class="lt_panel_close"></span><ul class="lt_mem_tab"><li class="act">周榜</li><li class="lt_t_line">月榜</li><li>总榜</li></ul></div>
+		<div class="lt_panel_content">
+			<div class="lt_panel_wrap pwrap_scroll" id="lt_panel_scroll">
+				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+				<div class="viewport">
+					<div class="overview">
+						<div class="lt_mem_line clear">
+							<span class="lt_attention1 right noSelect">+关注</span>
+							<span class="lt_n_common lt_n1 left">1</span>
+							<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
+							<div class="lt_mem_info">
+								<p>用户名用户名</p>
+								<p>真爱值 <span class="lt_c2">89879</span></p>
+							</div>
+						</div>
+						<div class="lt_mem_line clear">
+							<span class="lt_attention2 right noSelect">已关注</span>
+							<span class="lt_n_common lt_n2 left">2</span>
+							<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
+							<div class="lt_mem_info">
+								<p>用户名用户名</p>
+								<p>真爱值 <span class="lt_c2">89879</span></p>
+							</div>
+						</div>
+						<div class="lt_mem_line clear">
+							<span class="lt_n_common lt_n3 left">3</span>
+							<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
+							<div class="lt_mem_info">
+								<p>用户名用户名</p>
+								<p>真爱值 <span class="lt_c2">89879</span></p>
+							</div>
+						</div>
+						<div class="lt_mem_line clear">
+							<span class="lt_n_common lt_n4 left">4</span>
+							<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
+							<div class="lt_mem_info">
+								<p>用户名用户名</p>
+								<p>真爱值 <span class="lt_c2">89879</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="lt_mem_mine clear">
+				<span class="lt_n_common lt_n4 left">4</span>
+				<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
+				<div class="lt_mem_info">
+					<p>用户名用户名 真爱值 <span class="lt_c2">89879</span></p>
+					<p style="color: #736eab;">超越前一名，真爱值需提升 50000</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!---->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!-- ++ -->
+<div class="lt_panel_common" id="lt_panel_common">
+	<div class="lt_panel_common_wrap">
+		<div class="lt_panel_common_title">提示<span class="lt_panel_close"></span></div>
+		<div class="lt_common_content">
+			<p>升至</p>
+		</div>
+		<div class="lt_common_sub"><span class="lt_common_btn1 noSelect" onclick="closeDivPanel('lt_panel_common')">提交审核</span></div>
+	</div>
+</div>
+</body>
+</html>
