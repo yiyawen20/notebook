@@ -15,8 +15,10 @@
 <script>
 var IMI = IMI || {};
 IMI.masterURL = '//localhost:8081/';
+var liveHost = IMI.masterURL;
 var _ivp = _ivp || {};
 _ivp.auth = Math.random() > 0.4 ? 1 : 0;
+_ivp.userId = Math.random() > 0.4 ? -1 : 101208;
 
 /**
  * 格式化输出 
@@ -39,6 +41,71 @@ _ivp.auth = Math.random() > 0.4 ? 1 : 0;
     arr = null;
 	return template;
 }
+var Main = {};
+Main.Showpanel = (function($) {
+    var scrollXY = function() {
+        var a = document.documentElement;
+        return {
+            x : self.pageXOffset || a && a.scrollLeft || document.body.scrollLeft,
+            y : self.pageYOffset || a && a.scrollTop || document.body.scrollTop
+        }
+    };
+    var closeMask = function() {
+		$("#mask").hide();
+        $("#divmask").hide();
+    }
+    var showMask = function(zIndex) {
+        if ($("#divmask")) {
+            $("#divmask").css("height", $(document).height());
+            $("#divmask").css("width", $(document).width());
+            $("#divmask").css("z-index", parseInt(zIndex) - 1);
+            $("#divmask").show();
+        }
+    }
+
+    return {
+        /**
+         * 获取滚动的横轴和纵轴
+         */
+        getScrollXY : scrollXY,
+        /**
+         * 显示面板
+         */
+        showDivPanel : function(divId, hideMask) {
+    	var top, left;
+    	try{
+    		var w = $("#" + divId).width();
+    		var h = $("#" + divId).height();
+    		var resultH = $(window).height();
+    		var resultW = $(window).width();
+    		top = (resultH - h)/2;
+    		left = (resultW - w)/2;
+    	}catch(e){
+    		top = ($(window).height() - $("#" + divId).height()) / 2 + scrollXY().y;
+            left = ($(window).width() - $("#" + divId).width()) / 2;
+    	}
+    		top = top >= 0 ? top : 0;
+            $("#" + divId).css({
+                        position : 'fixed',
+                        top : top,
+                        left : left,
+                        'z-index' : 99999
+                    }).show();
+            if (!hideMask) {
+                showMask($("#" + divId).css("z-index"));
+            }
+        },
+        closeDivPanel : function(divId) {
+            if ($("#" + divId)) {
+                $("#" + divId).hide();
+                closeMask()
+            }
+        }
+    }
+})(jQuery);
+
+var showDivPanel = Main.Showpanel.showDivPanel;
+var closeDivPanel = Main.Showpanel.closeDivPanel;
 ;$(function(){
 	$("#lt_panel_scroll").tinyscrollbar({"wheel":54,"size":200});
 	$("#lt_panel_scroll").tinyscrollbar_update();
@@ -53,7 +120,7 @@ _ivp.auth = Math.random() > 0.4 ? 1 : 0;
 
 <div class="lt_container" style="display: none;">
 	<div class="lt_p1 clear">
-		<span class="lt_btn1 right noSelect" id="lt_xuefei_btn" data-status="1" style="display: none;">续费</span>
+		<span class="lt_btn1 right noSelect" id="lt_xufei_btn" data-status="1" style="display: none;">续费</span>
 		<span class="lt_btn1 right noSelect" id="lt_open_btn" style="display: none;">立即开通</span>
 		<span class="lt_fanhui_btn theme_btn3 right noSelect" id="lt_fanhui_btn" style="display: none;">返回</span>
 		<div><img src="style/img/lt_icon.png" class="lt_icon"> 团称<span id="lt_name">[<i class="lt_c1">无</i>]</span><span class="noSelect" id="lt_name_setting" style="display: none;">[<i class="lt_c3">设置</i>]</span></div>
@@ -61,8 +128,8 @@ _ivp.auth = Math.random() > 0.4 ? 1 : 0;
 	<div class="lt_p4" id="lt_mine_info" style="display: none;">
 		<p class="lt_mine_value">我的真爱值 <span class="lt_c2">0</span> <span class="lt_lv">lv0</span></p>
 		<div class="lt_ch1 clear">
-			<span class="lt_btn2 left">团排名0 <i class="lt_arrow1"></i></span>
-			<span class="lt_btn2 right">团成员0 <i class="lt_arrow1"></i></span>
+			<span class="lt_btn2 left" id="lt_team_rank_btn">团排名0 <i class="lt_arrow1"></i></span>
+			<span class="lt_btn2 right" id="lt_mem_rank_btn">团成员0 <i class="lt_arrow1"></i></span>
 		</div>
 	</div>
 	<div class="lt_p2" id="lt_task_wrap" style="display: none;">
@@ -98,14 +165,14 @@ _ivp.auth = Math.random() > 0.4 ? 1 : 0;
 <!-- $("#um_pk_lau").tinyscrollbar({"wheel":12,"size":200});$("#um_pk_lau").tinyscrollbar_update(); -->
 <div class="lt_panel" id="loveteam_panel" style="display:none;">
 	<div class="lt_tips_m">
-		<div class="lt_panel_title">用户名真爱团成员<span class="lt_panel_close"></span><ul class="lt_mem_tab"><li class="act">周榜</li><li class="lt_t_line">月榜</li><li>总榜</li></ul></div>
+		<div class="lt_panel_title"><span id="loveteam_panel_title"></span><span class="lt_panel_close" onclick="closeDivPanel('loveteam_panel')"></span><ul class="lt_mem_tab" style="display: none;"><li class="act">周榜</li><li class="lt_t_line">月榜</li><li>总榜</li></ul></div>
 		<div class="lt_panel_content">
 			<div class="lt_panel_wrap pwrap_scroll" id="lt_panel_scroll">
 				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 				<div class="viewport">
 					<div class="overview">
 						<div class="lt_mem_line clear">
-							<span class="lt_attention1 right noSelect">+关注</span>
+							<span class="lt_attention1 right noSelect" data-emceeId="10011">+关注</span>
 							<span class="lt_n_common lt_n1 left">1</span>
 							<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
 							<div class="lt_mem_info">
@@ -156,11 +223,25 @@ _ivp.auth = Math.random() > 0.4 ? 1 : 0;
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <!-- ++ -->
-<div class="lt_panel_common" id="lt_panel_common">
+<div class="lt_live_tips" id="lt_live_tips">
+	<div class="lt_live_tips_wrap">
+		<div class="lt_live_tips_title"><span class="lt_live_tips_close" onclick="closeDivPanel('lt_live_tips')"></span></div>
+		<div class="lt_live_tips_content">
+			<p class="lt_live_p1">价值<span class="lt_c4">123456</span>的礼物</p>
+			<div class="lt_live_p2">相信你对主播已有好感，仅需<span class="lt_c4">8000</span>金豆，加入主播真爱团，佩戴房间专属团称吧！</div>
+		</div>
+		<div class="lt_live_tips_sub"><span class="lt_live_tips_btn1 noSelect" onclick="closeDivPanel('lt_live_tips')">关注并加入</span></div>
+	</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!-- ++ -->
+<div class="lt_panel_common" id="lt_panel_common" style="display: none;">
 	<div class="lt_panel_common_wrap">
-		<div class="lt_panel_common_title">提示<span class="lt_panel_close"></span></div>
+		<div class="lt_panel_common_title">设置团称<span class="lt_panel_close" onclick="closeDivPanel('lt_panel_common')"></span></div>
 		<div class="lt_common_content">
-			<p>升至</p>
+			<div><input type="text" class="lt_input_text" value="" placeholder="请输入团称"></div>
+			<p class="lt_panel_ms1">输入2-3个字的团称，设置后30天内不可修改</p>
 		</div>
 		<div class="lt_common_sub"><span class="lt_common_btn1 noSelect" onclick="closeDivPanel('lt_panel_common')">提交审核</span></div>
 	</div>

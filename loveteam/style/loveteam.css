@@ -32,6 +32,7 @@
 .lt_open_item i.on{background-color: #fc45a9;}
 .lt_c2{color: #fc45a9;}
 .lt_c3{color: #ffe65b; cursor: pointer;}
+.lt_c4{color: #ffe65b;}
 
 .lt_fanhui_btn{display: inline-block; height: 24px; padding: 0 10px; font: 14px/24px normal; margin: 0 8px; text-align: center; white-space: nowrap; vertical-align: top; cursor: pointer;}
 
@@ -84,9 +85,9 @@ ul.lt_task_list li{height: 16px; padding: 3px 0; font: 12px/16px normal; white-s
 
 .lt_mem_mine{padding: 10px; background-color: #32303c;}
 
-.lt_attention1,.lt_attention2{display: inline-block; width: 64px; height: 26px; margin: 8px 0 0; border-radius: 5px; font: 14px/26px normal; text-align: center; color: #fff; cursor: pointer;}
-.lt_attention1{background-color: #32d372;}
-.lt_attention2{background-color: #3e3d51;}
+.lt_attention1,.lt_attention2{display: inline-block; width: 64px; height: 26px; margin: 8px 0 0; border-radius: 5px; font: 14px/26px normal; text-align: center; color: #fff;}
+.lt_attention1{background-color: #32d372; cursor: pointer;}
+.lt_attention2{background-color: #3e3d51; cursor: default;}
 
 .lt_tab_num{font-size: 12px;}
 
@@ -137,27 +138,14 @@ ul.lt_task_list li{height: 16px; padding: 3px 0; font: 12px/16px normal; white-s
 	list-style: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .lt_panel_common{position: absolute; z-index: 1000; width: 326px;}
-.lt_panel_common_wrap{color: #c6c6c6; background-color: #32303c; border-width: 2px; border-style: solid; border-color: #ffe65b; border-color: rgba(255,230,91,.5);}
-.lt_panel_common_title{position: relative; z-index: 1; padding: 10px; line-height: 24px; font-size: 16px; color: #ffe65b;}
+.lt_panel_common_wrap{color: #c6c6c6; background-color: #272531; border-width: 2px; border-style: solid; border-color: #ffe65b; border-color: rgba(255,230,91,.5);}
+.lt_panel_common_title{position: relative; z-index: 1; padding: 10px; line-height: 24px; font-size: 16px; color: #ffe65b; background-color: #32303c;}
 .lt_common_content{padding: 26px 20px 8px; font: 13px/21px normal; text-align: center;}
 .lt_common_sub{padding: 16px 0; text-align: center;}
 .lt_common_btn1,.lt_common_btn2{
 	display: inline-block;
-	width: 122px;
+	width: 180px;
 	height: 29px;
 	line-height: 29px;
 	font-size: 14px;
@@ -165,5 +153,29 @@ ul.lt_task_list li{height: 16px; padding: 3px 0; font: 12px/16px normal; white-s
 	margin: 0 8px 5px;
 	color: #000;
 }
-.lt_common_btn1{background-color: #fffd68;}
-.lt_common_btn2{background-color: #ffe5e5;}
+.lt_common_btn1{background-color: #fffd68; cursor: pointer;}
+.lt_common_btn2{color: #fffd68; background-color: #847939; cursor: default;}
+
+.lt_input_text{width: 270px; height: 22px; line-height: 22px; padding: 2px 5px; border: 1px solid #444; color: #fff; background-color: #1f2020; vertical-align: top;}
+.lt_panel_ms1{padding: 6px 0 0;}
+
+.lt_live_tips{position: absolute; z-index: 1000; width: 286px; height: 360px; background: url(img/live_tips_bg.png) no-repeat scroll 0 0 transparent;}
+.lt_live_tips_wrap{padding: 128px 14px 0 8px; color: #fff;}
+.lt_live_tips_title{position: relative; z-index: 1; height: 24px;}
+.lt_live_tips_close{position: absolute; top: 50%; right: 0; z-index: 1; display: inline-block; width: 24px; height: 24px; margin: -12px 0 0; background: url(img/close2.png) no-repeat scroll 50% 50% transparent; cursor: pointer;}
+.lt_live_tips_content{height: 114px; padding: 8px 20px 8px; font: 13px/21px normal; text-align: center;}
+.lt_live_p1{font: 18px/36px normal;}
+.lt_live_p2{padding: 10px 10px 0; font: 14px/22px normal; text-align: left;}
+.lt_live_tips_sub{padding: 16px 0; text-align: center;}
+.lt_live_tips_btn1,.lt_live_tips_btn2{
+	display: inline-block;
+	width: 220px;
+	height: 36px;
+	line-height: 36px;
+	border-radius: 3px;
+	font-size: 18px;
+	letter-spacing: 2px;
+	color: #4f0198;
+}
+.lt_live_tips_btn1{background-color: #dab2ff; cursor: pointer;}
+.lt_live_tips_btn2{background-color: #ffe5e5;}
