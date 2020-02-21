@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>xxxx</title>
+<link rel="stylesheet" type="text/css" href="http://cdn.mobimtech.com/www/ivp/v4/style/new_picture.css" media="all" />
+<link rel="stylesheet" type="text/css" href="http://cdn.mobimtech.com/www/ivp/v4/style/common.css" media="all" />
+<link skin="themeskin" rel="stylesheet" type="text/css" href="http://cdn.mobimtech.com/www/ivp/v4/style/theme_1.css?v=5273084">
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://cdn.mobimtech.com/www/ivp/v4/js/plugin/jquery/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript" src="js/moment-with-locales.min.js"></script>
+
+<script type="text/javascript" src="js/loveteam_file.js"></script>
+<link rel="stylesheet" type="text/css" href="style/loveteam_file.css" media="all" />
+<script>
+var IMI = IMI || {};
+IMI.masterURL = '//localhost:8081/';
+var liveHost = IMI.masterURL;
+var _ivp = _ivp || {};
+_ivp.auth = Math.random() > 0.4 ? 1 : 0;
+_ivp.userId = Math.random() > 0.4 ? -1 : 101208;
+
+/**
+ * 格式化输出 
+ * @param {} template 模板，占位符为{}，具体内容，依次排在后面，或者数组
+ * @return {}
+ */
+ function fm(template) {// 接收的参数为两种类型，(template,1,2,...) 或者(template,[1,3,...])
+	var arr = [];
+	if (arguments.length == 2 && typeof arguments[1] == 'object')
+		arr = arr.concat(arguments[1]);
+	else {
+		for (var i = 1; i < arguments.length; i++) {
+			arr.push(arguments[i]);
+		}
+	}
+	for (var i = 0; i<arr.length;i++) {
+		template = template.replace(/{}/, arr[i]);
+	}
+    arr.splice(0,arr.length);
+    arr = null;
+	return template;
+}
+var Main = {};
+Main.Showpanel = (function($) {
+    var scrollXY = function() {
+        var a = document.documentElement;
+        return {
+            x : self.pageXOffset || a && a.scrollLeft || document.body.scrollLeft,
+            y : self.pageYOffset || a && a.scrollTop || document.body.scrollTop
+        }
+    };
+    var closeMask = function() {
+		$("#mask").hide();
+        $("#divmask").hide();
+    }
+    var showMask = function(zIndex) {
+        if ($("#divmask")) {
+            $("#divmask").css("height", $(document).height());
+            $("#divmask").css("width", $(document).width());
+            $("#divmask").css("z-index", parseInt(zIndex) - 1);
+            $("#divmask").show();
+        }
+    }
+
+    return {
+        /**
+         * 获取滚动的横轴和纵轴
+         */
+        getScrollXY : scrollXY,
+        /**
+         * 显示面板
+         */
+        showDivPanel : function(divId, hideMask) {
+    	var top, left;
+    	try{
+    		var w = $("#" + divId).width();
+    		var h = $("#" + divId).height();
+    		var resultH = $(window).height();
+    		var resultW = $(window).width();
+    		top = (resultH - h)/2;
+    		left = (resultW - w)/2;
+    	}catch(e){
+    		top = ($(window).height() - $("#" + divId).height()) / 2 + scrollXY().y;
+            left = ($(window).width() - $("#" + divId).width()) / 2;
+    	}
+    		top = top >= 0 ? top : 0;
+            $("#" + divId).css({
+                        position : 'fixed',
+                        top : top,
+                        left : left,
+                        'z-index' : 99999
+                    }).show();
+            if (!hideMask) {
+                showMask($("#" + divId).css("z-index"));
+            }
+        },
+        closeDivPanel : function(divId) {
+            if ($("#" + divId)) {
+                $("#" + divId).hide();
+                closeMask()
+            }
+        }
+    }
+})(jQuery);
+
+var showDivPanel = Main.Showpanel.showDivPanel;
+var closeDivPanel = Main.Showpanel.closeDivPanel;
+;$(function(){
+	// $("#lt_panel_scroll").tinyscrollbar({"wheel":54,"size":200});
+	// $("#lt_panel_scroll").tinyscrollbar_update();
+
+	loveteamFile.init();
+});
+</script>
+</head>
+<body style="background:#333;">
+<br><br><br>
+<div class="lt_file_container">
+	<div class="lt_file_title clear"><span class="fanhuibtn right" onclick="history.back()">返回</span>我的真爱主播</div>
+	<div class="lt_zb_wrap">
+		<div class="clear">
+			<div class="lt_zb_kuai left">
+				<div class="lt_zb_p1 clear">
+                    <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
+                    <div class="lt_zb_info left">
+                        <p class="lt_i_t1">可爱啊 <span class="lt_lv">lv84</span></p>
+                        <p>主播：<span class="lt_c1">方可爱</span></p>
+                    </div>
+                    <span class="lt_btn_common lt_btn1 left noSelect" data-status="0">取消佩戴</span>
+                </div>
+				<div class="lt_zb_p2 clear">
+                    <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
+                    <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1">2020-09-21</span></p>
+                </div>
+			</div>
+			<div class="lt_zb_kuai left">
+				<div class="lt_zb_p1 clear">
+                    <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
+                    <div class="lt_zb_info left">
+                        <p class="lt_i_t1">可爱啊 <span class="lt_lv">lv84</span></p>
+                        <p>主播：<span class="lt_c1">方可爱</span></p>
+                    </div>
+                    <span class="lt_btn_common lt_btn1 left noSelect" data-status="1">为Ta代言</span>
+                </div>
+				<div class="lt_zb_p2 clear">
+                    <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
+                    <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1">2020-09-21</span></p>
+                </div>
+            </div>
+            <div class="lt_zb_kuai left">
+				<div class="lt_zb_p1 clear">
+                    <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
+                    <div class="lt_zb_info left">
+                        <p class="lt_i_t1">可爱啊 <span class="lt_lv">lv84</span></p>
+                        <p>主播：<span class="lt_c1">方可爱</span></p>
+                    </div>
+                    <span class="lt_btn_common lt_btn1 left noSelect" data-status="0">取消佩戴</span>
+                </div>
+				<div class="lt_zb_p2 clear">
+                    <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
+                    <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1">2020-09-21</span></p>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

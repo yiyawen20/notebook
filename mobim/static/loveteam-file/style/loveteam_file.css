@@ -1,0 +1,32 @@
+/* yyw */
+.lt_file_container{width: 1000px; padding: 20px 0 0;}
+.lt_file_title{padding: 0 20px; font: 700 14px/40px normal; background: url(img/content_topline.png) repeat-x scroll 50% 50% transparent;}
+.fanhuibtn{color:#f87b00; text-decoration:underline; cursor:pointer;}
+.lt_zb_wrap{padding: 20px 16px; background-color: #f8f8f8;}
+
+.lt_zb_kuai{width: 450px; margin: 10px 16px; border-radius: 3px; border: 1px solid #ccc; background-color: #fff;}
+.lt_zb_p1{padding: 16px; border-bottom: 1px solid #ccc;}
+.lt_zb_pic{margin: 0 16px 0 0;}
+.lt_zb_avatar{width: 54px; height: 54px; border-radius: 100%; vertical-align: top;}
+.lt_zb_info{width: 256px; padding: 2px 0; font: 14px/18px normal;}
+.lt_i_t1{padding: 7px 0; font: 18px/18px normal;}
+.lt_zb_p2{padding: 10px 16px; font: 16px/34px normal; white-space: nowrap; overflow: hidden;}
+
+.lt_c1{color: #fc5a58;}
+.lt_lv{display: inline-block; width: 31px; height: 18px; padding-left: 19px; white-space: nowrap; font: 12px/18px normal; color: #000; background: url(img/lt_lv.png) no-repeat scroll 0 0 transparent; vertical-align: top;}
+
+.lt_btn_common{
+    display: inline-block; width: 90px; height: 32px;
+    font: 16px/32px normal; text-align: center; white-space: nowrap;
+    border-radius: 4px; border: 1px solid #fc5a58;}
+.lt_btn1{
+    margin: 6px 0 0;
+    color: #fc5a58; background-color: #fff; /* 浏览器不支持时显示 */
+    /* background-image: linear-gradient(#fc5a58, #fc45a9); */
+    cursor: pointer;
+}
+.lt_btn2{
+    color: #fff; background-color: #fc5a58; /* 浏览器不支持时显示 */
+    background-image: linear-gradient(#fc5a58, #fc45a9);
+    cursor: pointer;
+}
