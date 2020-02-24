@@ -11,7 +11,7 @@
 <script type="text/javascript" src="js/moment-with-locales.min.js"></script>
 
 <script type="text/javascript" src="js/loveteam_file.js"></script>
-<link rel="stylesheet" type="text/css" href="style/loveteam_file.css" media="all" />
+<link rel="stylesheet" type="text/css" href="style/loveteam_main.css" media="all" />
 <script>
 var IMI = IMI || {};
 IMI.masterURL = '//localhost:8081/';
@@ -110,60 +110,54 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
 	// $("#lt_panel_scroll").tinyscrollbar({"wheel":54,"size":200});
 	// $("#lt_panel_scroll").tinyscrollbar_update();
 
-	loveteamFile.init();
+    // loveteamFile.init();
+    $(".act_tab").find("li").bind("click", function(){
+        var self = $(this);
+        var idx = self.index();
+        self.addClass("act").siblings().removeClass("act");
+        self.closest(".part1").next().children().eq(idx).show().siblings().hide();
+    });
 });
 </script>
+<style>
+.part1,.layout1 {height:856px; background:url(style/img/pic1.jpg) no-repeat scroll 50% 0 transparent;}
+.part2,.layout2 {height:842px; background:url(style/img/pic2.jpg) no-repeat scroll 50% 0 transparent;}
+.part3,.layout3 {height:1087px; background:url(style/img/pic3.jpg) no-repeat scroll 50% 0 transparent;}
+.part4,.layout4 {height:678px; background:url(style/img/pic4.jpg) no-repeat scroll 50% 0 transparent;}
+.part5,.layout5 {height:440px; background:url(style/img/pic5.jpg) no-repeat scroll 50% 0 transparent;}
+.part6,.layout6 {height:889px; background:url(style/img/pic6.jpg) no-repeat scroll 50% 0 transparent;}
+.part7,.layout7 {height:634px; background:url(style/img/pic7.jpg) no-repeat scroll 50% 0 transparent;}
+.part8,.layout8 {height:607px; background:url(style/img/pic8.jpg) no-repeat scroll 50% 0 transparent;}
+.part9,.layout9 {height:965px; background:url(style/img/pic9.jpg) no-repeat scroll 50% 0 transparent;}
+.part10,.layout10 {height:690px; background:url(style/img/pic10.jpg) no-repeat scroll 50% 0 transparent;}
+</style>
 </head>
-<body style="background:#333;">
-<br><br><br>
-<div class="lt_file_container">
-	<div class="lt_file_title clear"><span class="fanhuibtn right" onclick="history.back()">返回</span>我的真爱主播</div>
-	<div class="lt_zb_wrap">
-		<div class="clear">
-			<div class="lt_zb_kuai left">
-				<div class="lt_zb_p1 clear">
-                    <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
-                    <div class="lt_zb_info left">
-                        <p class="lt_i_t1">可爱啊 <span class="lt_lv">lv84</span></p>
-                        <p>主播：<span class="lt_c1">方可爱</span></p>
-                    </div>
-                    <span class="lt_btn_common lt_btn1 left noSelect" data-status="1">为Ta代言</span>
-                </div>
-				<div class="lt_zb_p2 clear">
-                    <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
-                    <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1 lt_endtime">2020-09-21</span></p>
-                </div>
-			</div>
-			<div class="lt_zb_kuai left">
-				<div class="lt_zb_p1 clear">
-                    <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
-                    <div class="lt_zb_info left">
-                        <p class="lt_i_t1">可爱啊 <span class="lt_lv">lv84</span></p>
-                        <p>主播：<span class="lt_c1">方可爱</span></p>
-                    </div>
-                    <span class="lt_btn_common lt_btn1 left noSelect" data-status="1">为Ta代言</span>
-                </div>
-				<div class="lt_zb_p2 clear">
-                    <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
-                    <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1 lt_endtime">2020-09-21</span></p>
-                </div>
-            </div>
-            <div class="lt_zb_kuai left">
-				<div class="lt_zb_p1 clear">
-                    <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
-                    <div class="lt_zb_info left">
-                        <p class="lt_i_t1">可爱啊 <span class="lt_lv">lv84</span></p>
-                        <p>主播：<span class="lt_c1">方可爱</span></p>
-                    </div>
-                    <span class="lt_btn_common lt_btn1 left noSelect" data-status="1">为Ta代言</span>
-                </div>
-				<div class="lt_zb_p2 clear">
-                    <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
-                    <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1 lt_endtime">2020-09-21</span></p>
-                </div>
-			</div>
-		</div>
-	</div>
+<body>
+<div class="activity_middle">
+	<div class="part1"><div class="layout1">
+        <ul class="act_tab clear">
+            <li class="a_btn1 act"></li>
+            <li class="a_btn2"></li>
+        </ul>
+    </div></div>
+	<div>
+        <div>
+            <div class="part2"><div class="layout2"></div></div>
+            <div class="part3"><div class="layout3"></div></div>
+            <div class="part4"><div class="layout4"></div></div>
+            <div class="part5"><div class="layout5"></div></div>
+            <div class="part6"><div class="layout6"></div></div>
+        </div>
+        <div style="display: none;">
+            <div class="part7"><div class="layout7"></div></div>
+            <div class="part8"><div class="layout8"></div></div>
+            <div class="part9"><div class="layout9"></div></div>
+            <div class="part10"><div class="layout10"></div></div>
+        </div>
+    </div>
+	<!-- <div style="color:#f00; background-color:#fff;">
+		<p style="font-size:18px; line-height:48px; text-align:center;">本活动最终解释权归官方运营团队所有</p>
+	</div> -->
 </div>
 </body>
 </html>

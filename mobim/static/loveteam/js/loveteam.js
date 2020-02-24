@@ -8,6 +8,8 @@ loveteam = {
 		var that = this;
 		moment.locale("zh-cn");
 
+		_ivp.token = _ivp.token || _ivp.imToken;
+
 		var ltOpenBtn = $("#lt_open_btn");
 		if(_ivp.auth == 1){
 			ltOpenBtn.hide();
@@ -15,6 +17,19 @@ loveteam = {
 		}else{
 			ltOpenBtn.show();
 		}
+
+		$(document.body).delegate("#lt_open_btn", "click", function(){
+			showpanel("开通", "是否开通真爱团"+that.openTime+"个月？", {
+				"leftText": "确定",
+				"leftCallback": function(){
+					that.openAndRenew(that.openTime, function(endTime){
+						that.endTime = endTime;
+						showSimplePanel('成功开通真爱团'+that.openTime+'个月！');
+					});
+				},
+				rightText: "取消"
+			});
+        });
 
 		$(".lt_open_item").find("i").bind("click", function(){
 			var _self = $(this);
@@ -102,16 +117,16 @@ loveteam = {
 		$.ajax({
 			url: IMI.masterURL + "realLove/init",
 			data: {
-				userId: 1,
-				roomId: 0
+				token: _ivp.token,
+				roomId: _ivp.roomId
 			},
-			dataType: "json",
+			dataType: "jsonp",
 			jsonpCallback : 'callback_' + new Date().getTime(),
 			type: 'GET',
 			success: function(res) {
 				var result = res.result;
-				if(result == 1000){
-					that.loveName = res.loveName;
+				if(result == 0){
+					that.loveName = res.loveName == '' ? '无' : res.loveName;
 					if(res.isOpen == 1 || _ivp.auth == 1){
 						that.roomLoveInfo(function(){
 							$(".lt_container").show();
@@ -130,6 +145,35 @@ loveteam = {
 			}
 		});
 	},
+	openAndRenew: function(n, cb){
+        var that = this;
+		if(that.__ii4 == 1) return;
+		that.__ii4 = 1;
+		$.ajax({
+			url: IMI.masterURL + "realLove/openAndRenew",
+			data: {
+				token: _ivp.token,
+				roomId: _ivp.roomId,
+                month: n
+			},
+			dataType: "jsonp",
+			jsonpCallback : 'callback_' + new Date().getTime(),
+			type: 'GET',
+			success: function(res) {
+				that.__ii4 = 2;
+				var result = res.result;
+                if(result == 1000){
+                    console.log('开通成功');
+                    if ((typeof cb) == "function") {
+                        cb(res.endTime);
+                    }
+                }else{
+                    // 开通失败
+                    console.log('开通失败');
+                }
+            }
+        });
+    },
 	roomLoveInfo: function(cb){
 		var that = this;
 		if(that.__ii2 == 1) return;
@@ -137,15 +181,15 @@ loveteam = {
 		$.ajax({
 			url: IMI.masterURL + "realLove/roomLoveInfo",
 			data: {
-				userId: 1,
-				roomId: 0
+				token: _ivp.token,
+				roomId: _ivp.roomId
 			},
-			dataType: "json",
+			dataType: "jsonp",
 			jsonpCallback : 'callback_' + new Date().getTime(),
 			type: 'GET',
 			success: function(res) {
 				var result = res.result;
-				if(result == 1000){
+				if(result == 0){
 					$("#lt_xufei_btn, #lt_mine_info, #lt_task_wrap").show();
 					$("#lt_open_btn, #lt_privilege_wrap, #lt_foot_open").hide();
 					var temp1 = '我的真爱值 <span class="lt_c2">{}</span> <span class="lt_lv">lv{}</span>';
@@ -234,6 +278,7 @@ loveteam = {
 					+'</div>';
 					var html = '';
 					for(var i = 0; i < list.length; i ++){
+						// getUserAvatar
 						html += fm(temp, liveHost, list[i].userId, i+1, i+1, list[i].avatar, list[i].nickname, list[i].loveNum);
 					}
 					$("#lt_panel_scroll").find(".overview").html(html);

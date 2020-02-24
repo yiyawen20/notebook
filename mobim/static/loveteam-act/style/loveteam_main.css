@@ -1,0 +1,149 @@
+html{overflow-x:scroll;}
+div{margin:0 auto;}
+.activity_middle{color:#504142; font: 18px/30px normal; /*max-width:1680px;*/ position:relative; overflow:hidden; background: none no-repeat scroll 0 0 transparent;}
+.activity_middle{
+	background-color: #402d6d; /* 不支持线性的时候显示 */
+    background-image: linear-gradient(#503c91 , #402d6d);
+}
+.layout1,.layout2,.layout3,.layout4,.layout5,.layout6,.layout7,.layout8,.layout9,.layout10{width:1000px; position:relative; z-index:1;}
+
+.act_tab{position: absolute; bottom: 34px; left: 50%; z-index: 1; width: 1050px; margin-left: -525px;}
+.act_tab li{float: left; width: 525px; height: 310px; cursor: pointer;}
+.a_btn1{background: url(img/tab_btn1_1.png) no-repeat scroll 0 0 transparent;}
+.a_btn2{background: url(img/tab_btn2_1.png) no-repeat scroll 0 0 transparent;}
+.act.a_btn1{background: url(img/tab_btn1_2.png) no-repeat scroll 0 0 transparent;}
+.act.a_btn2{background: url(img/tab_btn2_2.png) no-repeat scroll 0 0 transparent;}
+
+
+
+
+.activity_dome_scroll{position: relative; z-index: 1;}
+.activity_dome_scroll .scrollbar{
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	width: 6px;
+	/* padding: 1px; */
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	z-index: 2;
+	background-color: transparent;
+}
+.activity_dome_scroll .thumb{
+	width: 6px;
+	height: 12px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background-color: #fee88c;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	overflow: hidden;
+	cursor: pointer;
+}
+.activity_dome_scroll .thumb .end{
+	width: 6px;
+	height: 5px;
+}
+.activity_dome_scroll .disable{ display: none; }
+.activity_dome_scroll .viewport{
+	/*width: 346px;*/
+	height: 202px;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+.activity_dome_scroll .overview{
+	/*width: 346px;*/
+	position: relative;
+	list-style: none;
+}
+
+
+#divmask{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+	background-color: #000;
+	filter:alpha(opacity=60);
+	-moz-opacity:0.6;
+	-khtml-opacity:0.6;
+	opacity: 0.6;
+}
+
+/*活动模板页面的排序数字*/
+.activity_class {
+	width: 16px;
+	height: 16px;
+	background: transparent;
+	background:	url(img/activity_icon.png);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+.activity_icon1{ background-position: 0 0;}
+.activity_icon2{ background-position: -21px 0;}
+.activity_icon3{ background-position: -42px 0;}
+.activity_icon4{ background-position: -63px 0;}
+.activity_icon5{ background-position: -84px 0;}
+.activity_icon6{ background-position: -105px 0;}
+.activity_icon7{ background-position: -126px 0;}
+.activity_icon8{ background-position: -147px 0;}
+.activity_icon9{ background-position: -168px 0;}
+.activity_icon10{ background-position: -189px 0;}
+.activity_icon11{ background-position: -210px 0;}
+.activity_icon12{ background-position: -231px 0;}
+.activity_icon13{ background-position: -252px 0;}
+.activity_icon14{ background-position: -273px 0;}
+.activity_icon15{ background-position: -294px 0;}
+.activity_icon16{ background-position: -315px 0;}
+.activity_icon17{ background-position: -336px 0;}
+.activity_icon18{ background-position: -357px 0;}
+.activity_icon19{ background-position: -378px 0;}
+.activity_icon20{ background-position: -399px 0;}
+.activity_icon21{ background-position: -420px 0;}
+.activity_icon22{ background-position: -441px 0;}
+.activity_icon23{ background-position: -462px 0;}
+.activity_icon24{ background-position: -483px 0;}
+.activity_icon25{ background-position: -504px 0;}
+.activity_icon26{ background-position: -525px 0;}
+.activity_icon27{ background-position: -546px 0;}
+.activity_icon28{ background-position: -567px 0;}
+.activity_icon29{ background-position: -588px 0;}
+.activity_icon30{ background-position: -609px 0;}
+.activity_icon31{ background-position: -630px 0;}
+.activity_icon32{ background-position: -651px 0;}
+.activity_icon33{ background-position: -672px 0;}
+.activity_icon34{ background-position: -693px 0;}
+.activity_icon35{ background-position: -714px 0;}
+.activity_icon36{ background-position: -735px 0;}
+.activity_icon37{ background-position: -756px 0;}
+.activity_icon38{ background-position: -777px 0;}
+.activity_icon39{ background-position: -798px 0;}
+.activity_icon40{ background-position: -819px 0;}
+.activity_icon41{ background-position: -840px 0;}
+.activity_icon42{ background-position: -861px 0;}
+.activity_icon43{ background-position: -882px 0;}
+.activity_icon44{ background-position: -903px 0;}
+.activity_icon45{ background-position: -924px 0;}
+.activity_icon46{ background-position: -945px 0;}
+.activity_icon47{ background-position: -966px 0;}
+.activity_icon48{ background-position: -987px 0;}
+.activity_icon49{ background-position: -1008px 0;}
+.activity_icon50{ background-position: -1029px 0;}
+.activity_icon51{ background-position: -1050px 0;}
+.activity_icon52{ background-position: -1071px 0;}
+.activity_icon53{ background-position: -1092px 0;}
+.activity_icon54{ background-position: -1113px 0;}
+.activity_icon55{ background-position: -1134px 0;}
+.activity_icon56{ background-position: -1155px 0;}
+.activity_icon57{ background-position: -1176px 0;}
+.activity_icon58{ background-position: -1197px 0;}
+.activity_icon59{ background-position: -1218px 0;}
+.activity_icon60{ background-position: -1239px 0;}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>xxxx</title>
+<link rel="stylesheet" type="text/css" href="style/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="style/active.css" media="all" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<!-- <script type="text/javascript" src="js/newyear.js"></script> -->
+<script type="text/javascript">
+function loadMeta() {
+	var pageWidth = 750;
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth/pageWidth;
+	var ua = navigator.userAgent;
+
+    var _head = document.getElementsByTagName("head")[0];
+	var metaTag = document.createElement("meta");
+	metaTag.setAttribute("name", "viewport");
+	if (/Android (\d+\.\d+)/.test(ua)){
+		var version = parseFloat(RegExp.$1);
+		if(version > 2.3){
+			metaTag.setAttribute("content", "width="+pageWidth+", minimum-scale="+phoneScale+", maximum-scale="+phoneScale+", target-densitydpi=device-dpi");
+		}else{
+			metaTag.setAttribute("content", "width="+pageWidth+", target-densitydpi=device-dpi");
+		}
+	}else{
+		metaTag.setAttribute("content", "width="+pageWidth+", minimum-scale="+phoneScale+", maximum-scale="+phoneScale+", user-scalable=no, target-densitydpi=device-dpi");
+	}
+	_head.appendChild(metaTag);
+}
+
+;$(function(){
+	loadMeta();
+
+	$(".act_tab").find("li").bind("click", function(){
+        var self = $(this);
+        var idx = self.index();
+        self.addClass("act").siblings().removeClass("act");
+        self.closest(".banner").next().children().eq(idx).show().siblings().hide();
+    });
+});
+</script>
+</head>
+<body>
+<div id="container">
+	<div class="viewport">		
+		<div class="main">
+			<div class="banner">
+				<div><img src="style/img/pic1.jpg"></div>
+				<ul class="act_tab clear">
+					<li class="a_btn1 act"></li>
+					<li class="a_btn2"></li>
+				</ul>
+			</div>
+			<div>
+				<div>
+					<div><img src="style/img/pic2.jpg" class="pic"></div>
+					<div><img src="style/img/pic3.jpg" class="pic"></div>
+					<div><img src="style/img/pic4.jpg" class="pic"></div>
+					<div><img src="style/img/pic5.jpg" class="pic"></div>
+				</div>
+				<div style="display: none;">
+					<div><img src="style/img/pic6.jpg" class="pic"></div>
+					<div><img src="style/img/pic7.jpg" class="pic"></div>
+					<div><img src="style/img/pic8.jpg" class="pic"></div>
+					<div><img src="style/img/pic9.jpg" class="pic"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

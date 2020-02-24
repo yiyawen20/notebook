@@ -20,6 +20,13 @@ var _ivp = _ivp || {};
 _ivp.auth = Math.random() > 0.4 ? 1 : 0;
 _ivp.userId = Math.random() > 0.4 ? -1 : 101208;
 
+// 测试环境
+IMI.masterURL = '//aimi.mobimtech.com/';
+_ivp.auth = 0;
+_ivp.userId = 101208;
+_ivp.imToken = "c8j5wkl9xv4dwjqyfl9do";
+_ivp.roomId = "104416-1-8bd166252479e0a4c6170a078a7fde5c";
+
 /**
  * 格式化输出 
  * @param {} template 模板，占位符为{}，具体内容，依次排在后面，或者数组
