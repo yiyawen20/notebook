@@ -22,10 +22,19 @@ _ivp.userId = Math.random() > 0.4 ? -1 : 101208;
 
 // 测试环境
 IMI.masterURL = '//aimi.mobimtech.com/';
+liveHost = IMI.masterURL;
 _ivp.auth = 0;
 _ivp.userId = 101208;
 _ivp.imToken = "c8j5wkl9xv4dwjqyfl9do";
-_ivp.roomId = "104416-1-8bd166252479e0a4c6170a078a7fde5c";
+IMI.staticUrl = "//static.mobimtech.com/ivp/";
+var _r = Math.random();
+if(_r > 0.4){
+	_ivp.roomId = "104416-1-8bd166252479e0a4c6170a078a7fde5c";
+	_ivp.hostId = 104416;
+}else{
+	_ivp.roomId = "103573-1-ac5142183d2d82b6c1f3c4634dd03fb9";
+	_ivp.hostId = 103573;
+}
 
 /**
  * 格式化输出 
@@ -47,6 +56,22 @@ _ivp.roomId = "104416-1-8bd166252479e0a4c6170a078a7fde5c";
     arr.splice(0,arr.length);
     arr = null;
 	return template;
+}
+/**
+ * 获取用户头像地址
+ */
+ function getUserAvatar(avatar){
+	if(!avatar) {
+		return '';
+	}
+	if(avatar.indexOf("//") === 0) {
+		return avatar;
+	}
+	//去掉写死http://开头的 http:
+	if(avatar.indexOf("http") === 0) {
+		return avatar.replace('http:','');
+	}
+	return IMI.staticUrl + avatar.substring(1);
 }
 var Main = {};
 Main.Showpanel = (function($) {
@@ -178,7 +203,7 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
 				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
 				<div class="viewport">
 					<div class="overview">
-						<div class="lt_mem_line clear">
+						<!-- <div class="lt_mem_line clear">
 							<span class="lt_attention1 right noSelect" data-emceeId="10011">+关注</span>
 							<span class="lt_n_common lt_n1 left">1</span>
 							<div class="lt_mem_pic left"><img src="style/img/lt_q1.png" class="lt_mem_avatar"></div>
@@ -211,7 +236,7 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
 								<p>用户名用户名</p>
 								<p>真爱值 <span class="lt_c2">89879</span></p>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

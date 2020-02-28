@@ -1,0 +1,98 @@
+/* yyw */
+
+/*用户等级 start css 2013-5-15*/
+.level-class{
+	width:45px;
+	height:16px;
+	background:url(img/level-icon.gif)
+}
+.level-lv26,.level-lv27,.level-lv28,.level-lv29,.level-lv30,.level-lv31{
+	width:55px;
+	height:20px;
+}
+.level-lv00{ background-position:-5px -2px;}
+.level-lv0{ background-position:-65px -2px;}
+.level-lv1{ background-position:-125px -2px;}
+.level-lv2{ background-position:-185px -2px;}
+.level-lv3{ background-position:-245px -2px;}
+.level-lv4{ background-position:-305px -2px;}
+.level-lv5{ background-position:-365px -2px;}
+.level-lv6{ background-position:-425px -2px;}
+.level-lv7{ background-position:-485px -2px;}
+.level-lv8{ background-position:-545px -2px;}
+.level-lv9{ background-position:-605px -2px;}
+.level-lv10{ background-position:-665px -2px;}
+.level-lv11{ background-position:-725px -2px;}
+.level-lv12{ background-position:-785px -2px;}
+.level-lv13{ background-position:-5px -27px;}
+.level-lv14{ background-position:-65px -27px;}
+.level-lv15{ background-position:-125px -27px;}
+.level-lv16{ background-position:-185px -27px;}
+.level-lv17{ background-position:-245px -27px;}
+.level-lv18{ background-position:-305px -27px;}
+.level-lv19{ background-position:-365px -27px;}
+.level-lv20{ background-position:-425px -27px;}
+.level-lv21{ background-position:-485px -27px;}
+.level-lv22{ background-position:-545px -27px;}
+.level-lv23{ background-position:-605px -27px;}
+.level-lv24{ background-position:-665px -27px;}
+.level-lv25{ background-position:-725px -27px;}
+.level-lv26{ background-position:-780px -25px;}
+.level-lv27{ background-position:0 -50px;}
+.level-lv28{ background-position:-60px -50px;}
+.level-lv29{ background-position:-120px -50px;}
+.level-lv30{ background-position:-180px -50px;}
+.level-lv31{ background-position:-240px -50px;}
+/*用户等级  end css 2013-5-15*/
+
+/* 第一个版本 */
+.love_lv_common1{
+	display: inline-block; width: 42px; height: 24px; padding: 0 0 0 26px;
+	font: 12px/24px normal; color: #fff !important;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 50% 50%;
+	background-color: transparent;
+	/* text-shadow: 0px 0px 1px #6ea96a, 0px 0px 1px #6ea96a !important; */
+}
+
+.love_lv_common{
+	display: inline-block; width: 42px; height: 24px; padding: 0 0 0 26px;
+	font: 12px/24px normal; color: rgba(0, 0, 0, 1);
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: 50% 50%;
+	background-color: transparent;
+	text-shadow: 0px 0px 1px #fff, 0px 0px 1px #fff !important;
+}
+
+.love_lv1{color: #2f702c; background-image: url(img/love1.png);}
+.love_lv2{color: #2f702c; background-image: url(img/love2.png);}
+.love_lv3{color: #2f702c; background-image: url(img/love3.png);}
+.love_lv4{color: #2f702c; background-image: url(img/love4.png);}
+.love_lv5{color: #2f702c; background-image: url(img/love5.png);}
+.love_lv6{color: #196c5b; background-image: url(img/love6.png);}
+.love_lv7{color: #196c5b; background-image: url(img/love7.png);}
+.love_lv8{color: #196c5b; background-image: url(img/love8.png);}
+.love_lv9{color: #196c5b; background-image: url(img/love9.png);}
+.love_lv10{color: #196c5b; background-image: url(img/love10.png);}
+.love_lv11{color: #1f5cb6; background-image: url(img/love11.png);}
+.love_lv12{color: #1f5cb6; background-image: url(img/love12.png);}
+.love_lv13{color: #1f5cb6; background-image: url(img/love13.png);}
+.love_lv14{color: #1f5cb6; background-image: url(img/love14.png);}
+.love_lv15{color: #1f5cb6; background-image: url(img/love15.png);}
+.love_lv16{color: #3c0077; background-image: url(img/love16.png);}
+.love_lv17{color: #3c0077; background-image: url(img/love17.png);}
+.love_lv18{color: #3c0077; background-image: url(img/love18.png);}
+.love_lv19{color: #3c0077; background-image: url(img/love19.png);}
+.love_lv20{color: #3c0077; background-image: url(img/love20.png);}
+.love_lv21{color: #a63259; background-image: url(img/love21.png);}
+.love_lv22{color: #a63259; background-image: url(img/love22.png);}
+.love_lv23{color: #a63259; background-image: url(img/love23.png);}
+.love_lv24{color: #a63259; background-image: url(img/love24.png);}
+.love_lv25{color: #a63259; background-image: url(img/love25.png);}
+.love_lv26{color: #ba3500; background-image: url(img/love26.png);}
+.love_lv27{color: #ba3500; background-image: url(img/love27.png);}
+.love_lv28{color: #ba3500; background-image: url(img/love28.png);}
+.love_lv29{color: #ba3500; background-image: url(img/love29.png);}
+.love_lv30{color: #ba3500; background-image: url(img/love30.png);}

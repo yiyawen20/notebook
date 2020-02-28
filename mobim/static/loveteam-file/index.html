@@ -20,6 +20,22 @@ var _ivp = _ivp || {};
 _ivp.auth = Math.random() > 0.4 ? 1 : 0;
 _ivp.userId = Math.random() > 0.4 ? -1 : 101208;
 
+// 测试环境
+IMI.masterURL = '//aimi.mobimtech.com/';
+liveHost = IMI.masterURL;
+_ivp.auth = 0;
+_ivp.userId = 101208;
+_ivp.imToken = "c8j5wkl9xv4dwjqyfl9do";
+IMI.staticUrl = "//static.mobimtech.com/ivp/";
+var _r = Math.random();
+if(_r > 0.4){
+	_ivp.roomId = "104416-1-8bd166252479e0a4c6170a078a7fde5c";
+	_ivp.hostId = 104416;
+}else{
+	_ivp.roomId = "103573-1-ac5142183d2d82b6c1f3c4634dd03fb9";
+	_ivp.hostId = 103573;
+}
+
 /**
  * 格式化输出 
  * @param {} template 模板，占位符为{}，具体内容，依次排在后面，或者数组
@@ -40,6 +56,22 @@ _ivp.userId = Math.random() > 0.4 ? -1 : 101208;
     arr.splice(0,arr.length);
     arr = null;
 	return template;
+}
+/**
+ * 获取用户头像地址
+ */
+ function getUserAvatar(avatar){
+	if(!avatar) {
+		return '';
+	}
+	if(avatar.indexOf("//") === 0) {
+		return avatar;
+	}
+	//去掉写死http://开头的 http:
+	if(avatar.indexOf("http") === 0) {
+		return avatar.replace('http:','');
+	}
+	return IMI.staticUrl + avatar.substring(1);
 }
 var Main = {};
 Main.Showpanel = (function($) {
@@ -119,8 +151,8 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
 <div class="lt_file_container">
 	<div class="lt_file_title clear"><span class="fanhuibtn right" onclick="history.back()">返回</span>我的真爱主播</div>
 	<div class="lt_zb_wrap">
-		<div class="clear">
-			<div class="lt_zb_kuai left">
+		<div class="clear" id="lt_zb_list">
+			<!-- <div class="lt_zb_kuai left">
 				<div class="lt_zb_p1 clear">
                     <div class="lt_zb_pic left"><img src="style/img/11.png" class="lt_zb_avatar"></div>
                     <div class="lt_zb_info left">
@@ -161,7 +193,7 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
                     <span class="lt_btn_common lt_btn2 right noSelect">续  费</span>
                     <p>我的真爱值 <span class="lt_c1">99999</span> &nbsp;&nbsp;&nbsp;&nbsp;到期 <span class="lt_c1 lt_endtime">2020-09-21</span></p>
                 </div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </div>
