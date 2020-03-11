@@ -1,0 +1,36 @@
+/* yyw */
+
+.pk_bh_avatar{position: absolute; bottom: 0; left: 50%; z-index: 1; width: 44px; line-height: 16px; margin: 0 0 0 -22px; text-align: center;}
+.pk_bh_i{display: inline-block; width: 15px; height: 16px; margin: 0 1px; background: url(img/pk_bh_i1.png) no-repeat scroll 0 0 transparent; vertical-align: bottom;}
+.pk_bh_lock{position: absolute; bottom: 0; left: 0; z-index: 1; display: inline-block; width: 44px; height: 44px; border-radius: 100%; background: url(img/pk_bh_lock.png) no-repeat scroll 50% 50% rgba(0, 0, 0, .6);}
+
+.pk_bh_c1{color: #ffe65b;}
+.pk_bh_c2{color: #fc45a9;}
+
+
+.pk_bh_panel_common{position: absolute; z-index: 1000; width: 326px;}
+.pk_bh_panel_common_wrap{color: #c6c6c6; background-color: #272531; border-width: 2px; border-style: solid; border-color: #ffe65b; border-color: rgba(255,230,91,.5);}
+.pk_bh_panel_common_title{position: relative; z-index: 1; padding: 10px; line-height: 24px; font-size: 16px; color: #ffe65b; background-color: #32303c;}
+.pk_bh_panel_close{position: absolute; top: 50%; right: 8px; z-index: 1; display: inline-block; width: 24px; height: 24px; margin: -12px 0 0; background: url(img/pk_bh_close1.png) no-repeat scroll 50% 50% transparent; cursor: pointer;}
+.pk_bh_common_content{padding: 26px 20px 8px; font: 13px/21px normal; text-align: center;}
+.pk_bh_common_sub{padding: 16px 0; text-align: center;}
+.pk_bh_common_btn1,.pk_bh_common_btn2,.pk_bh_common_btn3{
+	display: inline-block;
+	width: 180px;
+	height: 29px;
+	line-height: 29px;
+	font-size: 14px;
+	/* letter-spacing: 2px; */
+	margin: 0 8px 5px;
+	color: #000;
+}
+.pk_bh_common_btn1{background-color: #fffd68; cursor: pointer;}
+.pk_bh_common_btn2{color: #fffd68; background-color: #847939; cursor: default;}
+.pk_bh_common_btn3{border-radius: 4px; color: #4f0198; background-color: #dab2ff; cursor: pointer;}
+
+
+.pk_bh_user_panel{position: absolute; z-index: 1000; width: 280px;}
+.pk_bh_user_panel_wrap{width: 280px; height: 320px; color: #fff; background: url(img/pk_bh_bg.png) no-repeat scroll 0 0 transparent;}
+.pk_bh_user_panel_title{position: relative; z-index: 1; height: 24px; padding: 10px; line-height: 24px; font-size: 16px; color: #ffe65b;}
+.pk_bh_user_panel_close{position: absolute; top: 8px; right: 24px; z-index: 1; display: inline-block; width: 28px; height: 28px; background: url(img/pk_bh_close.png) no-repeat scroll 50% 50% #9ead10; cursor: pointer;}
+.pk_bh_user_panel_content{height: 84px; padding: 100px 20px 8px; font: 13px/21px normal; text-align: center;}

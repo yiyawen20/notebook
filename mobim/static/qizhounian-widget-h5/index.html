@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>xxxx</title>
+<link rel="stylesheet" type="text/css" href="style/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="style/qizhounian_widget.css" media="all" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<!-- <script type="text/javascript" src="js/newyear.js"></script> -->
+<script type="text/javascript">
+function loadMeta() {
+	var pageWidth = 480;
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth/pageWidth;
+	var ua = navigator.userAgent;
+
+    var _head = document.getElementsByTagName("head")[0];
+	var metaTag = document.createElement("meta");
+	metaTag.setAttribute("name", "viewport");
+	if (/Android (\d+\.\d+)/.test(ua)){
+		var version = parseFloat(RegExp.$1);
+		if(version > 2.3){
+			metaTag.setAttribute("content", "width="+pageWidth+", minimum-scale="+phoneScale+", maximum-scale="+phoneScale+", target-densitydpi=device-dpi");
+		}else{
+			metaTag.setAttribute("content", "width="+pageWidth+", target-densitydpi=device-dpi");
+		}
+	}else{
+		metaTag.setAttribute("content", "width="+pageWidth+", minimum-scale="+phoneScale+", maximum-scale="+phoneScale+", user-scalable=no, target-densitydpi=device-dpi");
+	}
+	_head.appendChild(metaTag);
+}
+
+;$(function(){
+    loadMeta();
+    
+    $(".qzn_widget_tab").find("li").bind("click", function(){
+        var self = $(this);
+        var idx = self.index();
+        self.addClass("act").siblings().removeClass("act");
+        self.closest(".qzn_widget_tab").next().children().eq(idx).show().siblings().hide();
+    });
+});
+</script>
+</head>
+<body style="background:#333;">
+<div id="container">
+    <div class="viewport">
+        <div class="main">
+            <div class="qzn_widget">
+                <div class="qzn_widget_tab">
+                    <ul class="clear">
+                        <li class="act noSelect">专属礼物</li>
+                        <li class="noSelect">周年争霸赛</li>
+                    </ul>
+                </div>
+                <div class="qzn_content">
+                    <div>
+                        <div class="qzn_bt1">
+                            <div class="qzn_bt_t">4步解锁房间专属礼物</div>
+                        </div>
+                        <div class="qzn_lw_wrap">
+                            <div class="qzn_lw_p1" style="display: none;"><i>NOW Step1</i> 幸运一家人</div>
+                            <div class="qzn_lw_list" style="display: none;">
+                                <ul>
+                                    <li class="clear"><span class="right"><i class="lw_c1">877</i>/9999</span>房间内共收到<i class="lw_c2">小蛋糕</i>9999个</li>
+                                    <li class="qzn_lw_last clear"><span class="right"><i class="lw_c1">17</i>/29</span>房间内送出<i class="lw_c2">小蛋糕</i>的人数到达20人</li>
+                                    <!-- <li class="qzn_lw_one clear"><span class="right"><i class="lw_c1">17</i>/29</span>房间内送出<i class="lw_c2">小蛋糕</i>的人数到达20人</li> -->
+                                </ul>
+                            </div>
+                            <div class="hd_sign_up">
+                                <p class="qzn_ms_c1">本房间已解锁七周年专属礼物可在礼物栏【专属】中送出</p>
+                                <p><img src="style/img/2562.png" style="height: 208px; vertical-align: top;"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: none;">
+                        <div class="qzn_em_info clear">
+                            <span class="right">已经获得<i class="qzn_em_c1">99999</i>返利</span>
+                            <div><img src="style/img/111.png" class="qzn_em_avatar"> 已报名 <span class="qzn_em_bm">我要报名</span> <span class="bm_btn"></span></div>
+                        </div>
+                        <div class="qzn_lw_wrap">
+                            <div class="qzn_sk_t1">今日赛况</div>
+                            <div class="qzn_sk_p1 clear">
+                                <div class="qzn_sk_time_wrap">
+                                    <span class="arrow_left left no"></span>
+                                    <span class="hd_time_show left">3月22日 17:00~21:00</span>
+                                    <span class="arrow_right left"></span>
+                                </div>
+                            </div>
+                            <div class="gd_db">
+                                <span class="gd_db_load"><i style="width: 60%;"></i></span>
+                                <div class="left gd_zb1">
+                                    <img src="style/img/111.png" class="left gd_zb_avatar1">
+                                    <div class="left gd_zb_info1">
+                                        <p class="gd_zb_d1">9999票</p>
+                                        <p class="gd_zb_d2">主播昵称</p>
+                                    </div>
+                                </div>
+                                <div class="left gd_zb1">
+                                    <div class="left gd_zb_info2">
+                                        <p class="gd_zb_d1">9999票</p>
+                                        <p class="gd_zb_d2">主播昵称</p>
+                                    </div>
+                                    <img src="style/img/111.png" class="left gd_zb_avatar2">
+                                </div>
+                            </div>
+                            <div class="qzn_sk_result"><span class="qzn_sk_state">淘汰</span><span class="qzn_sk_state select">晋级</span></div>
+                        </div>
+                        <div class="qzn_lw_wrap" style="display: none;">
+                            <div class="hd_dt_wrap">
+                                <div class="hd_dt_t">比赛开始倒计时</div>
+                                <div class="ct_date">
+                                    <ul class="clear">
+                                        <li>1</li>
+                                        <li>8</li>
+                                        <li class="ct_date_d">:</li>
+                                        <li>0</li>
+                                        <li>0</li>
+                                        <li class="ct_date_d">:</li>
+                                        <li>0</li>
+                                        <li>0</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="qzn_lw_wrap" style="display: none;">
+                            <div class="qzn_no_bm">
+                                <p><img src="style/img/xl.png"></p>
+                                <p class="qzn_nbm_c1">请在明天00:00至19:00参加报名哦~</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="qzn_footer qzn_content"><a href="/act" target="black">查看周年庆活动详情&gt;</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

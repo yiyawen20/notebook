@@ -77,7 +77,7 @@ loveteamFile = {
                                 +'<p>主播：<span class="lt_c1">{}</span></p>'
                             +'</div>'
                             +'</a>'
-                            +'<span class="lt_btn_common lt_btn1 left noSelect" data-emceeId="{}" data-status="1">为Ta代言</span>'
+                            +'<span class="lt_btn_common lt_btn1 left noSelect" data-emceeId="{}" data-status="{}">{}</span>'
                         +'</div>'
                         +'<div class="lt_zb_p2 clear">'
                             +'<span class="lt_btn_common lt_btn2 right noSelect" data-emceeId="{}">续  费</span>'
@@ -93,6 +93,8 @@ loveteamFile = {
                             list[i].loveLv,
                             list[i].nickname,
                             list[i].emceeId,
+                            list[i].isWear == 1 ? 0 : 1,
+                            list[i].isWear == 1 ? '取消佩戴' : '为Ta代言',
                             list[i].emceeId,
                             list[i].loveNum,
                             list[i].endTime);

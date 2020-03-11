@@ -359,6 +359,7 @@ loveteam = {
 							+'<p>{}的真爱团 真爱值 <span class="lt_c2">{}</span></p>'
 							+'<p style="color: #736eab;">超越前一名，真爱值需提升 {}</p>'
 						+'</div>';
+					loveInfo.rank = loveInfo.rank == '100+' ? '100' : loveInfo.rank;
 					var html1 = fm(temp1, loveInfo.rank, loveInfo.rank, getUserAvatar(loveInfo.avatar), loveInfo.nickname, loveInfo.loveNum, loveInfo.needNum);
 					$(".lt_mem_mine").html(html1);
 				}
@@ -417,6 +418,7 @@ loveteam = {
 							+'<p>{} 真爱值 <span class="lt_c2">{}</span></p>'
 							+'<p style="color: #736eab;">超越前一名，真爱值需提升 {}</p>'
 						+'</div>';
+					loveInfo.rank = loveInfo.rank == '100+' ? '100' : loveInfo.rank;
 					var html1 = fm(temp1, loveInfo.rank, loveInfo.rank, getUserAvatar(loveInfo.avatar), loveInfo.nickname, loveInfo.loveNum, loveInfo.needNum);
 					$(".lt_mem_mine").html(html1);
 				}

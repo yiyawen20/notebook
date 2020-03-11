@@ -1,0 +1,199 @@
+ /*
+Version:
+Author:  yawen.yi
+Created: 2016.07.12
+Model: common
+*/
+@charset "utf-8";
+
+/*************************************common start***********************************************/
+html{-webkit-text-size-adjust: none;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,legend,button,
+form,fieldset,input,textarea,p,blockquote,th,td,a {
+	padding:0;
+	margin:0;
+	word-break:break-all;
+}
+/* 缩写，图片等无边框 */
+fieldset,img,abbr,acronym {border: 0 none;}
+abbr,acronym {font-variant: normal;}
+legend {color:#000;}
+
+/* 清除特殊标记的字体和字号 */
+address,caption,cite,code,dfn,em,strong,th,var,i {
+	font-weight: normal;
+	font-style: normal;
+}
+/* 上下标 */
+sup {vertical-align: text-top;}
+sub {vertical-align: text-bottom;}
+
+/* 设置表格的边框被合并为一个单一的边框, 指定分隔边框模型中单元格边界之间的距离为0*/
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* 表格标题及内容居左显示 */
+caption,th {text-align: left;}
+input,img,select,hr {vertical-align:middle; border: none;}
+
+/* 清除列表样式 */
+ol,ul {list-style: none;}
+
+/* 标题元素样式清除 */
+h1,h2,h3,h4,h5,h6 {
+　　font-weight: normal;
+　　font-size: 100%;
+}
+body {
+	font-size:1rem;
+	line-height: 1.7;/*默认行高*/
+	color:#333;
+	background-color:#fff;
+	font-family:tahoma, arial, \5b8b\4f53, sans-serif;
+	/* font-family: 'Microsoft YaHei UI','Microsoft YaHei'; */
+}
+
+/*字体定义*/
+select,input,i,em,var,address,textarea{font-family:tahoma, arial, \5b8b\4f53, sans-serif;}
+
+a{outline: none; cursor:pointer;}
+a,a:link,a:visited,a:active {
+	text-decoration: none;
+	-webkit-transition:color 500ms;
+	-moz-transition:color 500ms;
+	-o-transition:color 500ms;
+	transition:color 500ms;
+}
+a:hover {
+	text-decoration: none;
+	-webkit-transition:color 500ms;
+	-moz-transition:color 500ms;
+	-o-transition:color 500ms;
+	transition:color 500ms;
+}
+
+/*清除样式*/
+.clear{ zoom:1; clear:both;}
+.clear:after{ content:"."; height:0; line-height: 0; font-size: 0; overflow:hidden; display:block; clear:both; visibility:hidden;}
+
+.left{float: left;}
+.right{float: right;}
+
+/*************************************common end***********************************************/
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
+}
+
+body{
+	background:none no-repeat scroll 0 0 #fff;
+	-webkit-tap-highlight-color:rgba(0,0,0,0.5);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-overflow-scrolling: touch;
+}
+body::-webkit-scrollbar{width:0;}/*webkit滚动条隐藏*/
+
+section{display: block;}
+.viewport{min-height: 100%;}
+
+.display-box{display: -webkit-box; display: -webkit-flex; display: flex;}
+.flex{-webkit-box-flex:1; -webkit-flex:1; flex:1;}
+
+/*提示框1*/
+.onpanel{
+	position:fixed;
+	bottom:150px;
+	z-index:200;
+	padding:5px 10px;
+	color:#fff;
+	font-size:87.5%;
+	text-align:center;
+	background-color:#000;
+	background-color:rgba(0,0,0,0.8);
+	-webkit-box-shadow:0 0 5px rgba(0,0,0,0.8);
+	-moz-box-shadow:0 0 5px rgba(0,0,0,0.8);
+	box-shadow:0 0 5px rgba(0,0,0,0.8);
+	border-radius:4px;
+}
+.loading-dome{width:100%; text-align:center; padding:15px 0; /*background-color:rgba(0,0,0,0.8);*/}
+.loading-dome .loading-colour{display: block; width: 120px; height: 120px; background: url(img/loading.png) no-repeat scroll 0 0 transparent;}
+.loading-play{
+	display: inline-block;
+	-webkit-animation: spin 0.8s infinite linear;
+	-ms-animation: spin 0.8s infinite linear;
+	animation: spin 0.8s infinite linear;
+}
+
+@keyframes spin {
+	from {
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		-moz-transform: rotate(359deg);
+		-o-transform: rotate(359deg);
+		-ms-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+@-webkit-keyframes spin {
+	from {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+@-ms-keyframes spin {
+	from {
+		-ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}

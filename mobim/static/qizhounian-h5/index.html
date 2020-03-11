@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="screen-orientation" content="portrait">
+<meta name="x5-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="x5-fullscreen" content="true">
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>xxxx</title>
+<link rel="stylesheet" type="text/css" href="style/common.css" media="all" />
+<link rel="stylesheet" type="text/css" href="style/active.css" media="all" />
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<!-- <script type="text/javascript" src="js/newyear.js"></script> -->
+<script type="text/javascript">
+function loadMeta() {
+	var pageWidth = 750;
+	var phoneWidth = parseInt(window.screen.width);
+	var phoneScale = phoneWidth/pageWidth;
+	var ua = navigator.userAgent;
+
+    var _head = document.getElementsByTagName("head")[0];
+	var metaTag = document.createElement("meta");
+	metaTag.setAttribute("name", "viewport");
+	if (/Android (\d+\.\d+)/.test(ua)){
+		var version = parseFloat(RegExp.$1);
+		if(version > 2.3){
+			metaTag.setAttribute("content", "width="+pageWidth+", minimum-scale="+phoneScale+", maximum-scale="+phoneScale+", target-densitydpi=device-dpi");
+		}else{
+			metaTag.setAttribute("content", "width="+pageWidth+", target-densitydpi=device-dpi");
+		}
+	}else{
+		metaTag.setAttribute("content", "width="+pageWidth+", minimum-scale="+phoneScale+", maximum-scale="+phoneScale+", user-scalable=no, target-densitydpi=device-dpi");
+	}
+	_head.appendChild(metaTag);
+}
+
+;$(function(){
+	loadMeta();
+
+	$(".hd_part").find(".part_title").bind("click", function(){
+		var self = $(this);
+		self.slideUp(function(){
+			self.next().slideDown();
+		});
+		$(".on .part_pic").slideUp(function(){
+			$(".on .part_title").slideDown();
+			self.closest(".hd_part").addClass("on").siblings().removeClass("on");
+		});
+	});
+});
+</script>
+</head>
+<body>
+<div id="container">
+	<div class="viewport">
+		<div class="main">
+			<div class="banner">
+				<div><img src="style/img/banner.jpg"></div>
+			</div>
+			<div>
+				<div class="hd_part on">
+					<div class="part_title"><img src="style/img/pic_title1.png" class="pic"></div>
+					<div class="part_pic"><img src="style/img/pic1.jpg" class="pic"></div>
+					<div class="content_part1">
+						<p>3.20~3.22日，周年庆连续3天，财富等级提升速度翻倍，主播等级提升速度也翻倍！</p>
+					</div>
+				</div>
+				<div class="hd_part">
+					<div class="part_title"><img src="style/img/pic_title2.png" class="pic"></div>
+					<div class="part_pic"><img src="style/img/pic2.jpg" class="pic"></div>
+					<span class="buy_btn"></span>
+					<div class="content_part1" style="top: 134px; left: 130px; width: 492px;">
+						<p>活动期间只要单笔充值大于等于100元即可购买<span style="color: #ffde00; font-weight: 700;">感恩大礼包</span>。礼包包含：</p>
+					</div>
+					<div class="content_part1" style="top: 534px; left: 130px; width: 492px;">
+						<p>1. 代表注册时间，在2019年3月20日（含）后注册的记为1，其余用户若注册时间每多一年则红包数量增加1。</p>
+						<p>2. 活动期间，购买礼包，并在当日充值任意金额即可点亮7周年徽章，进入房间会有特殊的进场提示语哦。</p>
+					</div>
+				</div>
+				<div class="hd_part">
+					<div class="part_title"><img src="style/img/pic_title3.png" class="pic"></div>
+					<div class="part_pic"><img src="style/img/pic3.jpg" class="pic"></div>
+					<div class="content_part1" style="top: 160px; left: 130px; width: 260px;">
+						<p>活动期间房间内达成如下四步任务，即可解锁7周年专属礼物~~</p>
+					</div>
+				</div>
+				<div class="hd_part">
+					<div class="part_title"><img src="style/img/pic_title4.png" class="pic"></div>
+					<div class="part_pic"><img src="style/img/pic4.jpg" class="pic"></div>
+					<div class="content_part1" style="top: 210px; left: 130px; width: 492px; line-height: 48px;">
+						<p>1. 活动期间每日充值达<br>到一定的额度就可以领<br>取周年幸运礼盒 <img src="style/img/box1.png"></p>
+						<p>2. 幸运礼盒中可以开出不<br>同的礼物，最高可开出<br>幸福摩天轮</p>
+						<p>3. 查看任务及领取奖励请点击直播间右侧周年庆图标 <img src="style/img/icon1.png"></p>
+					</div>
+				</div>
+				<div class="hd_part">
+					<div class="part_title"><img src="style/img/pic_title5.png" class="pic"></div>
+					<div class="part_pic">
+						<div class="part5_top"></div>
+						<div class="part5_middle">
+							<div style="padding: 0 59px 20px;">
+								<p style="padding: 5px 0;">1. 每日00：00~19:00为报名时间。19:00~23：00每小时的05分开启随机PK，共进行5轮</p>
+								<p style="padding: 5px 0;">2. 主播等级 <img src="style/img/emcee_lv_icon.png"> 及以上的主播报名后进入钻石赛道。主播等级 <img src="style/img/emcee_lv_icon.png"> 以下的主播报名后进入黄金赛道</p>
+								<p style="padding: 5px 0;">3. PK获胜的一方将获得双方送礼金豆总和一定百分比的金豆返利。同时继续参与下一个小时的随机PK，若双方平局则都无法获得返利但可同时进入下一轮PK</p>
+								<p style="padding: 5px 0;">4. 第一个小时返利1%，之后每个小时增加1%</p>
+								<p style="padding: 5px 0;">5. 若本轮人数为奇数，则会有随机一名主播轮空，轮空主播将获得本小时的返利，并进入下一轮PK</p>
+								<p style="padding: 5px 0;">6. 每个赛道中，在比赛期间对同一个主播消费最多的用户成为当日MVP，获取MVP徽章</p>
+							</div>
+							<div class="hd_tab">
+								<ul class="clear">
+									<li class="hd_t1 act"></li>
+									<li class="hd_t2"></li>
+								</ul>
+							</div>
+							<div class="hd_rank_content">
+								<div class="hd_time">
+									<div class="hd_m clear">
+										<span class="arrow_left left no"></span>
+										<span class="hd_time_show left">3月22日 17:00~21:00</span>
+										<span class="arrow_right left"></span>
+									</div>
+								</div>
+								<div>
+									<div class="hd_mvp_wrap">
+										<div class="hd_mvp_p1">
+											<div><img src="style/img/box1.png" class="hd_mvp_avatar"></div>
+											<div>用户名</div>
+										</div>
+										<div class="hd_mvp_p2">
+											<div><img src="style/img/box1.png" class="hd_mvp_avatar"></div>
+											<div>用户名</div>
+										</div>
+										<div class="hd_mvp_jz">99.99W<i>金豆</i></div>
+									</div>
+									<div class="hd_rank_head">
+										<ul class="clear">
+											<li class="hd_th1">主播</li>
+											<li class="hd_th2"></li>
+											<li class="hd_th3">获取返利</li>
+											<li class="hd_th4">胜场</li>
+										</ul>
+									</div>
+									<div class="hd_rank_list activity_dome_scroll" id="lt_panel_scroll">
+										<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+										<div class="viewport">
+											<div class="overview">
+												<ul class="clear">
+													<li class="hd_r1"><span class="hd_n_common hd_n1"></span></li>
+													<li class="hd_r2"><img src="style/img/box1.png" class="hd_r_avatar"></li>
+													<li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
+													<li class="hd_r4">9999</li>
+													<li class="hd_r5">22 <span class="hd_r_xx">详情&gt;</span></li>
+												</ul>
+												<ul class="clear">
+													<li class="hd_r1"><span class="hd_n_common hd_n2"></span></li>
+													<li class="hd_r2"><img src="style/img/box1.png" class="hd_r_avatar"></li>
+													<li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
+													<li class="hd_r4">9999</li>
+													<li class="hd_r5">22 <span class="hd_r_xx">详情&gt;</span></li>
+												</ul>
+												<ul class="clear">
+													<li class="hd_r1"><span class="hd_n_common hd_n3"></span></li>
+													<li class="hd_r2"><img src="style/img/box1.png" class="hd_r_avatar"></li>
+													<li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
+													<li class="hd_r4">9999</li>
+													<li class="hd_r5">22 <span class="hd_r_xx">详情&gt;</span></li>
+												</ul>
+												<ul class="clear">
+													<li class="hd_r1"><span class="hd_n_common hd_n4">4</span></li>
+													<li class="hd_r2"><img src="style/img/box1.png" class="hd_r_avatar"></li>
+													<li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
+													<li class="hd_r4">9999</li>
+													<li class="hd_r5">22 <span class="hd_r_xx">详情&gt;</span></li>
+												</ul>
+												<ul class="clear">
+													<li class="hd_r1"><span class="hd_n_common hd_n5">5</span></li>
+													<li class="hd_r2"><img src="style/img/box1.png" class="hd_r_avatar"></li>
+													<li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
+													<li class="hd_r4">9999</li>
+													<li class="hd_r5">22 <span class="hd_r_xx">详情&gt;</span></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div style="height: 24px;"></div>
+								</div>
+								<div class="hd_dt_wrap">
+									<div class="hd_dt_t">比赛开始倒计时</div>
+									<div class="ct_date">
+										<ul class="clear">
+											<li>1</li>
+											<li>8</li>
+											<li class="ct_date_d">:</li>
+											<li>0</li>
+											<li>0</li>
+											<li class="ct_date_d">:</li>
+											<li>0</li>
+											<li>0</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="part5_footer"></div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<div><img src="style/img/footer.jpg" class="pic"></div>
+				<div class="copyright">本活动最终解释权归官方运营团队所有</div>
+			</div>
+		</div>
+		<!-- 报名成功 -->
+		<div class="activity_panel_common display-box">
+			<div class="mask"></div>
+			<div class="activity_pop pop_bmcg">
+				<div class="pop_wrap1">
+					<p>报名成功，自动进入黄金赛道。系统将于3月22日19:00为你随机匹配1个对手。请留意直播间挂件信息。</p>
+				</div>
+				<div class="pop_sub"><span class="pop_sure_btn">确认</span></div>
+			</div>
+		</div>
+		<!-- 购买失败 -->
+		<div class="activity_panel_common display-box">
+			<div class="mask"></div>
+			<div class="activity_pop pop_gmsb">
+				<div class="pop_wrap2">
+					<p>你的金豆余额不足！</p>
+				</div>
+				<div class="pop_sub"><span class="pop_sure_btn">确认</span></div>
+			</div>
+		</div>
+		<!-- 恭喜你 -->
+		<div class="activity_panel_common display-box">
+			<div class="mask"></div>
+			<div class="activity_pop pop_gxn">
+				<div class="pop_wrap1">
+					<ul class="clear pop_gift_list">
+						<li>
+							<div><img src="style/img/box1.png" class="pop_pic1"></div>
+							<p class="pop_p1">小蛋糕x266</p>
+						</li>
+						<li>
+							<div><img src="style/img/box1.png" class="pop_pic1"></div>
+							<p class="pop_p1">周年派对x1</p>
+						</li>
+						<li>
+							<div><img src="style/img/box1.png" class="pop_pic1"></div>
+							<p class="pop_p1">7周年徽章</p>
+						</li>
+						<li>
+							<div><img src="style/img/box1.png" class="pop_pic1"></div>
+							<p class="pop_p1">幸运红包x1</p>
+						</li>
+					</ul>
+				</div>
+				<div class="pop_sub"><span class="pop_sure_btn">确认</span></div>
+			</div>
+		</div>
+		<!-- 很抱歉 -->
+		<div class="activity_panel_common display-box">
+			<div class="mask"></div>
+			<div class="activity_pop pop_hbq">
+				<div class="pop_wrap1">
+					<div class="pop_w1" style="display: none;">
+						<p>你还未达到礼物购买条件！</p>
+						<p>活动期间大笔充值大于等于100元</p>
+						<p>即可购买超值感恩礼包哦~</p>
+					</div>
+					<div class="pop_w2" style="display: none;">
+						<p>比赛已经开始了！无法报名</p>
+						<p>请在明天00:00至19:00参与报名哦~</p>
+					</div>
+					<div class="pop_w3">
+						<p>每人只能购买1个感恩礼包哦~</p>
+					</div>
+				</div>
+				<div class="pop_sub"><span class="pop_sure_btn">确认</span></div>
+			</div>
+		</div>
+		<!-- 赛绩详情 -->
+		<div class="part6_panel">
+			<div class="banner">
+				<div><img src="style/img/banner.jpg"></div>
+			</div>
+			<div class="part6_main">
+				<div class="part6_top">
+					<div class="gd_title"><span class="gd_c1">主播昵称</span>的赛事详情</div>
+					<span class="fh_btn">返回</span>
+				</div>
+				<div class="part6_middle">
+					<div class="gd_line">
+                        <div class="left gd_t1">19:00<br>~<br>20:00</div>
+                        <div class="left gd_db">
+                            <span class="gd_db_load"><i style="width: 40%;"></i></span>
+                            <div class="left gd_zb1">
+                                <img src="style/img/111.png" class="left gd_zb_avatar1">
+                                <div class="left gd_zb_info1">
+                                    <p class="gd_zb_d1">9999</p>
+                                    <p class="gd_zb_d2">主播昵称</p>
+                                </div>
+                            </div>
+                            <div class="left gd_zb1">
+                                <div class="left gd_zb_info2">
+                                    <p class="gd_zb_d1">9999</p>
+                                    <p class="gd_zb_d2">主播昵称</p>
+                                </div>
+                                <img src="style/img/111.png" class="left gd_zb_avatar2">
+                            </div>
+                        </div>
+					</div>
+					<div class="gd_line">
+                        <div class="left gd_t1">19:00<br>~<br>20:00</div>
+                        <div class="left gd_db">
+                            <span class="gd_db_load"><i style="width: 40%;"></i></span>
+                            <div class="left gd_zb1">
+                                <img src="style/img/111.png" class="left gd_zb_avatar1">
+                                <div class="left gd_zb_info1">
+                                    <p class="gd_zb_d1">9999</p>
+                                    <p class="gd_zb_d2">主播昵称</p>
+                                </div>
+                            </div>
+                            <div class="left gd_zb1">
+                                <div class="left gd_zb_info2">
+                                    <p class="gd_zb_d1">9999</p>
+                                    <p class="gd_zb_d2">主播昵称</p>
+                                </div>
+                                <img src="style/img/111.png" class="left gd_zb_avatar2">
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+			<div class="footer">
+				<div><img src="style/img/footer.jpg" class="pic"></div>
+				<div class="copyright">本活动最终解释权归官方运营团队所有</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

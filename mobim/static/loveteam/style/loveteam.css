@@ -71,13 +71,15 @@ ul.lt_task_list li{height: 16px; padding: 3px 0; font: 12px/16px normal; white-s
 
 .lt_mem_line{padding: 6px 0;}
 .lt_n_common{display: inline-block; width: 24px; height: 24px; margin: 9px 0 0; font: 12px/24px normal; border-radius: 100%; text-align: center; white-space: nowrap; color: #fff; background-color: #736eab;}
-.lt_n1,.lt_n2,.lt_n3{text-indent: -1111111px; position: relative; z-index: 1;}
+.lt_n1,.lt_n2,.lt_n3,.lt_n100{text-indent: -1111111px; position: relative; z-index: 1;}
 .lt_n1::after,
 .lt_n2::after,
-.lt_n3::after{position: absolute; top: 50%; left: 50%; z-index: 1; display: block; content: ""; width: 32px; height: 32px; margin: -16px 0 0 -16px;}
+.lt_n3::after,
+.lt_n100::after{position: absolute; top: 50%; left: 50%; z-index: 1; display: block; content: ""; width: 32px; height: 32px; margin: -16px 0 0 -16px;}
 .lt_n1::after{background: url(img/n1.png) no-repeat scroll 50% 50% transparent;}
 .lt_n2::after{background: url(img/n2.png) no-repeat scroll 50% 50% transparent;}
 .lt_n3::after{background: url(img/n3.png) no-repeat scroll 50% 50% transparent;}
+.lt_n100::after{background: url(img/n100.png) no-repeat scroll 50% 50% transparent;}
 
 .lt_mem_pic{margin: 0 10px 0 15px;}
 .lt_mem_avatar{width: 42px; height: 42px; border-radius: 100%; vertical-align: top;}

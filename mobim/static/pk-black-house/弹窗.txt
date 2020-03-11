@@ -1,0 +1,27 @@
+showpanel("提示",
+	"对方已被关入小黑屋暂时无法PK！",
+	{
+
+		"leftText": "我知道了",
+		"leftCallback": function(){
+}
+
+	});
+
+
+showpanel("提示",
+	"是否删除你的好友？",
+	{
+
+		"leftText": "点错了",
+		"leftCallback": function(){
+}
+,
+		"rightText": "确认删除",
+		"leftCallback": function(){
+			//TODO
+		
+}
+
+	});
+$("#_r3_pop_common").find(".theme_btn2").eq(0).removeClass("theme_btn2").addClass("theme_btn1");
