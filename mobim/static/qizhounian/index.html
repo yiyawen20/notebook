@@ -17,9 +17,10 @@ var IMI = IMI || {};
 IMI.masterURL = '//localhost:8081/';
 var liveHost = IMI.masterURL;
 var _ivp = _ivp || {};
+var isAuth = 0;
 
 // 测试环境
-IMI.masterURL = '//aimi.mobimtech.com/';
+// IMI.masterURL = '//aimi.mobimtech.com/';
 liveHost = IMI.masterURL;
 _ivp.auth = 0;
 _ivp.userId = 101208;
@@ -184,22 +185,22 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
                 <div class="hd_rank_content">
                     <div class="hd_time">
                         <div class="hd_m clear">
-                            <span class="arrow_left left no"></span>
-                            <span class="hd_time_show left">3月22日 19:05~24:00</span>
-                            <span class="arrow_right left"></span>
+                            <span class="arrow_left left" id="slider1_left"></span>
+                            <span class="hd_time_show left" id="slider1_date"></span>
+                            <span class="arrow_right left slider_disabled" id="slider1_right"></span>
                         </div>
                     </div>
                     <div style="display: none;">
                         <div class="hd_mvp_wrap">
                             <div class="hd_mvp_p1">
-                                <div><img src="style/img/box1.png" class="hd_mvp_avatar"></div>
-                                <div>用户名</div>
+                                <div><img src="style/img/default.png" class="hd_mvp_avatar"></div>
+                                <div></div>
                             </div>
                             <div class="hd_mvp_p2">
-                                <div><img src="style/img/box1.png" class="hd_mvp_avatar"></div>
-                                <div>用户名</div>
+                                <div><img src="style/img/default.png" class="hd_mvp_avatar"></div>
+                                <div></div>
                             </div>
-                            <div class="hd_mvp_jz">99.99W<i>金豆</i></div>
+                            <div class="hd_mvp_jz">0<i>金豆</i></div>
                         </div>
                         <div class="hd_rank_head">
                             <ul class="clear">
@@ -212,8 +213,8 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
                         <div class="hd_rank_list activity_dome_scroll" id="lt_panel_scroll">
                             <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
                             <div class="viewport">
-                                <div class="overview">
-                                    <ul class="clear">
+                                <div class="overview" id="zbs_rank_content">
+                                    <!-- <ul class="clear">
                                         <li class="hd_r1"><span class="hd_n_common hd_n1"></span></li>
                                         <li class="hd_r2"><img src="style/img/box1.png" class="hd_r_avatar"></li>
                                         <li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
@@ -247,7 +248,7 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
                                         <li class="hd_r3"><span class="hd_r_name">主播昵称主播昵称主播昵称</span> <span class="hd_live">直播</span></li>
                                         <li class="hd_r4">9999</li>
                                         <li class="hd_r5">22 <span class="hd_r_xx">详情&gt;</span></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
                         </div>
@@ -343,7 +344,7 @@ var closeDivPanel = Main.Showpanel.closeDivPanel;
         <div class="gd_wrap activity_dome_scroll" id="gd_panel_scroll">
             <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
             <div class="viewport">
-                <div class="overview">
+                <div class="overview" id="emcee_details">
                     <div class="gd_line">
                         <div class="left gd_t1">19:00~20:00</div>
                         <div class="left gd_db">
